@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="tensorflow, tensorflow js, audio, yamnet, tailwindcss">
+    <meta name="author" content="Muhamamd Ridho Isdi">
+    <meta name="description" content="Audio recognition: open and close detection is an implementation of deep learning using tensorflow. This application uses transfer learning to detect sound or audio through a microphone device.">
+    <title>Audio Recognition: Open Close Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./images/bg.jpg" type="image/png">
+  </head>
+  <body class="bg-[url('./images/bg.jpg')] bg-cover font-['Poppins']">
+    <section class="min-h-screen py-8 px-4 flex gap-10 flex-col-reverse justify-center items-center">
+      <div class="basis-1/2 mt-4 flex gap-10 justify-center items-center flex-wrap">
+        <div
+          class="p-4 gap-8 flex justify-center items-center flex-col rounded-xl w-[200px] h-[250px] bg-[rgba(255,255,255,0)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8px] border border-[rgba(255,255,255,0.5)]"
+        >
+          <p class="text-slate-200 text-2xl">Result</p>
+          <img src="./images/close.png" alt="result" class="w-1/2" />
+          <p class="text-slate-200 text-base">
+            Confidence: <span id="close">90</span>%
+          </p>
+        </div>
+        <div
+          class="p-4 gap-8 flex justify-center items-center flex-col rounded-xl w-[200px] h-[250px] bg-[rgba(255,255,255,0)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8px] border border-[rgba(255,255,255,0.5)]"
+        >
+          <p class="text-slate-200 text-2xl">Result</p>
+          <img src="./images/open.png" alt="result" class="w-1/2" />
+          <p class="text-slate-200 text-base">
+            Confidence: <span id="open">90</span>%
+          </p>
+        </div>
+        <div
+          class="p-4 gap-8 flex justify-center items-center flex-col rounded-xl w-[200px] h-[250px] bg-[rgba(255,255,255,0)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8px] border border-[rgba(255,255,255,0.5)]"
+        >
+          <p class="text-slate-200 text-2xl">Result</p>
+          <img src="./images/noise.png" alt="result" class="w-1/2" />
+          <p class="text-slate-200 text-base">
+            Confidence: <span id="noise">90</span>%
+          </p>
+        </div>
+      </div>
+      <div
+        class="py-4 basis-1/2 flex justify-center items-center px-4 flex-col w-fit "
+      >
+        <p class="text-slate-200 text-2xl text-center">
+          Audio Recognition Transfer Learning Yamnet: <br />
+          Close and Open Detection
+        </p>
+        <div class="py-4 mt-4 flex justify-evenly w-full rounded-xl bg-[rgba(255,255,255,0)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8px] border border-[rgba(255,255,255,0.5)]">
+            <button type="button" class="border border-[rgba(255,255,255,0.5)] w-[100px] rounded-xl" id="onAudio">
+                <img src="./images/mic.svg" class="w-full animate-pulse" alt="on">
+            </button>
+            <button type="button" class="border border-[rgba(255,255,255,0.5)] w-[100px] rounded-xl" id="offAudio">
+                <img src="./images/voice.svg" class="w-full" alt="off">
+            </button>
+        </div>
+      </div>
+    </section>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
